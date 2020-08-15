@@ -1,8 +1,0 @@
----
-title: "jordan’s data"
-output: html_document
----
-
-```{r setup, include=FALSE}
-setwd("~/Desktop/hack/explatory")
-```
