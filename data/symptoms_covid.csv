@@ -1,0 +1,14 @@
+Symptom,Percentage,numerical
+Cough,0.703,numerical
+High Fever,0.467,numerical
+Chest Pain,0.339,numerical
+Flu,0.257,numerical
+Weakness,0.296,numerical
+Myalgia,0.15,numerical
+Headache ,0.218,numerical
+Swollen Lymph Nodes,0.247,numerical
+Nausea,0.188,numerical
+Diarrhea,0.072,numerical
+Loss of Taste ,0.8,numerical
+Exposed,1,categorical
+Weakened Immune System,1,categorical
