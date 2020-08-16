@@ -1,0 +1,378 @@
+---
+title: "jordan’s data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+setwd("~/Desktop/hack/explatory")
+```
+```{r}
+library("rjson")
+```
+```{r}
+new_data <- read.csv("~/Desktop/hack/data/death_data.csv")
+#new_data <- read.csv("~/Desktop/hack/data/jordan_cases.csv")
+
+```
+
+```{r}
+colnames(new_data)
+new_data <- new_data[,-1]
+```
+```{r}
+nrow(new_data) #168
+nrow(new_data)-7+1 #162
+```
+```{r}
+i<-1
+i:1+6
+mean(new_data[i:(i+6),1])
+```
+
+```{r}
+new_data[,1]
+aceh_avg <- rep(NA, 162)
+for(i in 1:162){
+  aceh_avg[i] <- mean(new_data[i:(i+6),1])
+}
+
+bali_avg <- rep(NA, 162)
+for(i in 1:162){
+  bali_avg[i] <- mean(new_data[i:(i+6),2])
+}
+
+banten_avg <- rep(NA, 162)
+for(i in 1:162){
+  banten_avg[i] <- mean(new_data[i:(i+6),3])
+}
+
+bengkulu_avg <- rep(NA, 162)
+for(i in 1:162){
+  bengkulu_avg[i] <- mean(new_data[i:(i+6),4])
+}
+
+jogja_avg <- rep(NA, 162)
+for(i in 1:162){
+  jogja_avg[i] <- mean(new_data[i:(i+6),5])
+}
+
+jakarta_avg <- rep(NA, 162)
+for(i in 1:162){
+  jakarta_avg[i] <- mean(new_data[i:(i+6),6])
+}
+
+gorontalo_avg <- rep(NA, 162)
+for(i in 1:162){
+  gorontalo_avg[i] <- mean(new_data[i:(i+6),7])
+}
+
+jambi_avg <- rep(NA, 162)
+for(i in 1:162){
+  jambi_avg[i] <- mean(new_data[i:(i+6),8])
+}
+
+jawa_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  jawa_barat_avg[i] <- mean(new_data[i:(i+6),9])
+}
+
+jawa_tengah_avg <- rep(NA, 162)
+for(i in 1:162){
+  jawa_tengah_avg[i] <- mean(new_data[i:(i+6),10])
+}
+
+jawa_timur_avg <- rep(NA, 162)
+for(i in 1:162){
+  jawa_timur_avg[i] <- mean(new_data[i:(i+6),11])
+}
+
+kalimantan_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  kalimantan_barat_avg[i] <- mean(new_data[i:(i+6),12])
+}
+
+kalimantan_selatan_avg <- rep(NA, 162)
+for(i in 1:162){
+  kalimantan_selatan_avg[i] <- mean(new_data[i:(i+6),13])
+}
+
+kalimantan_tengah_avg <- rep(NA, 162)
+for(i in 1:162){
+  kalimantan_tengah_avg[i] <- mean(new_data[i:(i+6),14])
+}
+
+kalimantan_timur_avg <- rep(NA, 162)
+for(i in 1:162){
+  kalimantan_timur_avg[i] <- mean(new_data[i:(i+6),15])
+}
+
+kalimantan_utara_avg <- rep(NA, 162)
+for(i in 1:162){
+  kalimantan_utara_avg[i] <- mean(new_data[i:(i+6),16])
+}
+
+bangka_belitung_avg <- rep(NA, 162)
+for(i in 1:162){
+  bangka_belitung_avg[i] <- mean(new_data[i:(i+6),17])
+}
+
+riau_avg <- rep(NA, 162)
+for(i in 1:162){
+  riau_avg[i] <- mean(new_data[i:(i+6),18])
+}
+
+lampung_avg <- rep(NA, 162)
+for(i in 1:162){
+  lampung_avg[i] <- mean(new_data[i:(i+6),19])
+}
+
+maluku_avg <- rep(NA, 162)
+for(i in 1:162){
+  maluku_avg[i] <- mean(new_data[i:(i+6),20])
+}
+
+maluku_utara_avg <- rep(NA, 162)
+for(i in 1:162){
+  maluku_utara_avg[i] <- mean(new_data[i:(i+6),21])
+}
+
+nusa_tenggara_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  nusa_tenggara_barat_avg[i] <- mean(new_data[i:(i+6),22])
+}
+
+nusa_tenggara_timur_avg <- rep(NA, 162)
+for(i in 1:162){
+  nusa_tenggara_timur_avg[i] <- mean(new_data[i:(i+6),23])
+}
+
+
+papua_avg <- rep(NA, 162)
+for(i in 1:162){
+  papua_avg[i] <- mean(new_data[i:(i+6),24])
+}
+
+papua_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  papua_barat_avg[i] <- mean(new_data[i:(i+6),25])
+}
+
+riau_avg <- rep(NA, 162)
+for(i in 1:162){
+  riau_avg[i] <- mean(new_data[i:(i+6),26])
+}
+
+sulawesi_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  sulawesi_barat_avg[i] <- mean(new_data[i:(i+6),27])
+}
+
+sulawesi_selatan_avg <- rep(NA, 162)
+for(i in 1:162){
+  sulawesi_selatan_avg[i] <- mean(new_data[i:(i+6),28])
+}
+
+sulawesi_tengah_avg <- rep(NA, 162)
+for(i in 1:162){
+  sulawesi_tengah_avg[i] <- mean(new_data[i:(i+6),29])
+}
+
+sulawesi_tenggara_avg <- rep(NA, 162)
+for(i in 1:162){
+  sulawesi_tenggara_avg[i] <- mean(new_data[i:(i+6),30])
+}
+
+sumatera_barat_avg <- rep(NA, 162)
+for(i in 1:162){
+  sumatera_barat_avg[i] <- mean(new_data[i:(i+6),31])
+}
+
+sumatera_selatan_avg <- rep(NA, 162)
+for(i in 1:162){
+  sumatera_selatan_avg[i] <- mean(new_data[i:(i+6),32])
+}
+
+sumatera_utara_avg <- rep(NA, 162)
+for(i in 1:162){
+  sumatera_utara_avg[i] <- mean(new_data[i:(i+6),33])
+}
+
+
+seven_day_avg<-data.frame(aceh_avg,bali_avg,banten_avg,bengkulu_avg,jogja_avg,jakarta_avg,gorontalo_avg,jambi_avg,jawa_barat_avg,jawa_tengah_avg,jawa_timur_avg,kalimantan_barat_avg,kalimantan_selatan_avg,kalimantan_tengah_avg,kalimantan_timur_avg,kalimantan_utara_avg,bangka_belitung_avg,riau_avg,lampung_avg,maluku_avg,maluku_utara_avg,nusa_tenggara_barat_avg,nusa_tenggara_timur_avg,papua_avg,papua_barat_avg,riau_avg,sulawesi_barat_avg,sulawesi_selatan_avg,sulawesi_tengah_avg,sulawesi_tenggara_avg,sumatera_barat_avg,sumatera_selatan_avg,sumatera_utara_avg)
+
+colnames(seven_day_avg) <- c("Aceh","Bali","Banten","Bengkulu","Jogja","Jakarta","Gorontalo","Jambi","Jawa Barat","Jawa Tengah","Jawa Timur","Kalimantan Barat","Kalimantan Selatan","Kalimantan Tengah","Kalimantan Timur","Kalimantan Utara","Bangka Belitung","Riau","Lampung","Maluku","Maluku Utara","Nusa Tenggara Barat","Nusa Tenggara Timur","Papua","Papua Barat","Riau","Sulawesi Barat","Sulawesi Selatan","Sulawesi Tengah","Sulawesi Tenggara","Sumatera Barat","Sumatera Selatan","Sumatera Utara")
+
+seven_day_avg <- round(seven_day_avg,2)
+seven_day_avg
+```
+```{r}
+library(dplyr)
+library(tidyr)
+library(plotly)
+```
+```{r}
+Day <- 1:nrow(seven_day_avg)
+seven_day_avg <- data.frame(Day,seven_day_avg)
+#seven_day_avg <- seven_day_avg %>% gather("City", "Deaths",2:34)
+
+```
+```{r}
+seven_day_avg <- seven_day_avg %>% gather("City", "Cases",2:34)
+animation_data <-  seven_day_avg %>% gather("City", "Death",2:34)
+```
+```{r}
+final <- merge(x=animation_data,y=seven_day_avg,by=c("Day","City"))
+
+```
+
+```{r}
+trace_0 <- rnorm(100, mean = 5)
+trace_1 <- rnorm(100, mean = 0)
+trace_2 <- rnorm(100, mean = -5)
+x <- c(1:100)
+
+data <- data.frame(x, trace_0, trace_1, trace_2)
+```
+```{r}
+
+```
+```{r}
+animation_data
+```
+```{r}
+final
+final$Day <- factor(final$Day)
+final$City <- factor(final$City)
+```
+```{r}
+colnames(final)[2] <- c("Province")
+```
+```{r}
+colnames(final)[2] <- c("Province")
+eight <- final[final$Province == "Jakarta" | final$Province == "Jawa.Timur" | final$Province == "Jawa.Tengah"| final$Province == "Sulaewsi.Selatan"|final$Province == "Jawa.Barat"| final$Province == "Kalimantan.Selatan"| final$Province == "Bali",]
+
+eight
+rownames(eight) <- NULL
+```
+```{r}
+levels(eight$Day)
+# 
+# eight <- eight[eight$Day == "1" |eight$Day ==  "300" | eight$Day == "60"| eight$Day == "80"| eight$Day == "100" | eight$Day == "125"|eight$Day ==  "150"| eight$Day == "162",]
+```
+```{r}
+fig <- eight %>%
+        plot_ly(
+          x = ~Cases, 
+          y = ~Death, 
+          color = ~Province, 
+          frame = ~factor(Day), 
+          text = ~Province, 
+          hoverinfo = "text",
+          type = 'scatter',
+          mode = 'markers'
+        )
+
+fig
+```
+
+```{r}
+accumulate_by <- function(dat, var) {
+  var <- lazyeval::f_eval(var, dat)
+  lvls <- plotly:::getLevels(var)
+  dats <- lapply(seq_along(lvls), function(x) {
+    cbind(dat[var %in% lvls[seq(1, x)], ], frame = lvls[[x]])
+  })
+  dplyr::bind_rows(dats)
+}
+
+df <- txhousing 
+fig <- df %>%
+  filter(year > 2005, city %in% c("Abilene", "Bay Area"))
+fig <- fig %>% accumulate_by(~date)
+```
+```{r}
+
+fig <- fig %>%
+  plot_ly(
+    x = ~date, 
+    y = ~median,
+    split = ~city,
+    frame = ~frame, 
+    type = 'scatter',
+    mode = 'lines', 
+    line = list(simplyfy = F)
+  )
+fig <- fig %>% layout(
+  xaxis = list(
+    title = "Date",
+    zeroline = F
+  ),
+  yaxis = list(
+    title = "Median",
+    zeroline = F
+  )
+) 
+fig <- fig %>% animation_opts(
+  frame = 100, 
+  transition = 0, 
+  redraw = FALSE
+)
+fig <- fig %>% animation_slider(
+  hide = T
+)
+fig <- fig %>% animation_button(
+  x = 1, xanchor = "right", y = 0, yanchor = "bottom"
+)
+
+fig
+
+
+```
+
+```{r}
+eight <- eight[eight$Day >=7,]
+eight <- eight[order(eight[,1],decreasing=FALSE),]
+```
+```{r}
+write.csv(eight,"eight_provinces_plotly.csv")
+```
+
+```{r}
+eight
+```
+```{r}
+fig <- eight
+fig <- fig %>%
+  plot_ly(
+    x = ~Day, 
+    y = ~Death,
+    split = ~Province,
+    frame = ~Day, 
+    type = 'scatter',
+    mode = 'lines', 
+    line = list(simplyfy = F)
+  )
+fig <- fig %>% layout(
+  xaxis = list(
+    title = "Day",
+    zeroline = F
+  ),
+  yaxis = list(
+    title = "Cases",
+    zeroline = F
+  )
+) 
+fig <- fig %>% animation_opts(
+  frame = 100, 
+  transition = 0, 
+  redraw = FALSE
+)
+fig <- fig %>% animation_slider(
+  hide = T
+)
+fig <- fig %>% animation_button(
+  x = 1, xanchor = "right", y = 0, yanchor = "bottom"
+)
+
+fig
+```

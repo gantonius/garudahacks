@@ -4,6 +4,15 @@ from pprint import pprint
 from flask_wtf import FlaskForm 
 from wtforms import StringField, SubmitField 
 from wtforms.validators import DataRequired
+import joblib
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+from sklearn.cluster import KMeans
+import pickle 
+
 
 app = Flask(__name__)
 @app.route('/',methods=['GET','POST'])
@@ -19,6 +28,8 @@ def non_med():
         print(response)
         results = testing_covid(response)
         print(results)
+        non_med_results = severity_classifier(results)
+        print(non_med_results)
         return render_template('nonmedical_results.html')
         # return render_template('nonmedical_results.html')
     else: 
@@ -31,7 +42,9 @@ def med():
         print(response)
         results = testing_diseases(response)
         print(results)
-        return render_template('doctor_results.html')
+        med_results = disease_predictor(results)
+        print(med_results)
+        return render_template('doctor_results.html',suggestion=med_results)
     else: 
         return render_template('doctor.html')
 
@@ -133,6 +146,37 @@ def testing_covid(z):
             lossoftaste = 1
     return cough, highfever, chestpain, flu, weakness, myalgia, headache, swollenlymph, nausea, diarrhea, lossoftaste
 
+def disease_predictor(symptoms, PATH = "logistic-reg_model.joblib"):
+    """
+    Function that predicts whether a patient has COVID-19, Tuberculosis, or Dengue Fever based
+    on a list of 18 symptoms
+    """
+    import joblib
+    log_model = joblib.load(PATH)
+    
+    disease = log_model.predict([symptoms])[0]
+    
+    return disease
+
+def severity_classifier(symptoms, PATH = 'k-means_model.joblib'):
+    """
+    Function that predicts whether the patient has a high severity COVID case or a low severity
+    COVID case if the patient is confirmed to be tested positive for COVID-19
+    """
+    import joblib
+    
+    symptoms = list(symptoms)
+    symptoms.append(1) # Appending the sick binary value
+    
+    classifier = joblib.load(PATH)
+    severity_id = classifier.predict(np.array([symptoms]).reshape(1, 12))[0] + 1
+    
+    if severity_id == 1:
+        severity = 'Low Severity'
+    else:
+        severity = 'High Severity'
+    
+    return severity
   
 if __name__ == "__main__":
     app.run(debug=True)

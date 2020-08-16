@@ -1,0 +1,61 @@
+```{r}
+setwd("~/Desktop/hack/explatory")
+```
+
+```{r}
+symptoms_covid <- read.csv("~/Desktop/hack/data/symptoms_covid.csv")
+```
+```{r}
+x <- c(0,1)
+covid <- data.frame(rep(NA,500))
+covid$Cough <- sample(x, size=500, prob=c(1-0.703,0.703), replace=TRUE)
+covid$HighFever <- sample(x, size=500, prob=c(1-0.467,0.467), replace=TRUE)
+covid$ChestPain <- sample(x, size=500, prob=c(1-0.339,0.339), replace=TRUE)
+covid$Flu <- sample(x, size=500, prob=c(1-0.257,0.257), replace=TRUE)
+covid$Weakness <- sample(x, size=500, prob=c(1-0.296,0.296), replace=TRUE)
+covid$Myalgia <- sample(x, size=500, prob=c(1-0.150,0.150), replace=TRUE)
+covid$Headache <- sample(x, size=500, prob=c(1-0.218,0.218), replace=TRUE)
+covid$Lymph <- sample(x, size=500, prob=c(1-0.247,0.247), replace=TRUE)
+covid$Nausea <- sample(x, size=500, prob=c(1-0.188,0.188), replace=TRUE)
+covid$Diarrhea <- sample(x, size=500, prob=c(1-0.072,0.072), replace=TRUE)
+covid$Loss_Taste <- sample(x, size=500, prob=c(1-0.8,0.8), replace=TRUE)
+covid$sick <- rep(1,500)
+```
+
+```{r}
+symptoms_dengue <- read.csv("~/Desktop/hack/data/symptoms_dengue.csv")
+```
+```{r}
+dengue <- data.frame(rep(NA,500))
+dengue$Weakness <- sample(x, size=500, prob=c(1-0.98,0.98), replace=TRUE)
+dengue$HighFever <- sample(x, size=500, prob=c(1-0.91,0.91), replace=TRUE)
+dengue$NoAppetite  <- sample(x, size=500, prob=c(1-0.9,0.9), replace=TRUE)
+dengue$Headache  <- sample(x, size=500, prob=c(1-0.71,0.71), replace=TRUE)
+dengue$Loss_Taste <- sample(x, size=500, prob=c(1-0.7,0.7), replace=TRUE)
+dengue$Nausea <- sample(x, size=500, prob=c(1-0.58,0.58), replace=TRUE)
+dengue$Constipation <- sample(x, size=500, prob=c(1-0.53,0.53), replace=TRUE)
+dengue$AbdominalPain <- sample(x, size=500, prob=c(1-0.5,0.5), replace=TRUE)
+dengue$Headache <- sample(x, size=500, prob=c(1-0.45,0.45), replace=TRUE)
+dengue$SwollenLymph <- sample(x, size=500, prob=c(1-0.41,0.41), replace=TRUE)
+dengue$Cough <- sample(x, size=500, prob=c(1-0.22,0.22), replace=TRUE)
+dengue$Flu <- sample(x, size=500, prob=c(1-0.13,0.13), replace=TRUE)
+dengue$Rash <- sample(x, size=500, prob=c(1-0.12,0.12), replace=TRUE)
+dengue$Myalgia <- sample(x, size=500, prob=c(1-0.12,0.12), replace=TRUE)
+dengue$Diarrhea <- sample(x, size=500, prob=c(1-0.06,0.06), replace=TRUE)
+dengue$sick <- rep(2,500)
+
+
+dengue <- dengue[,-1]
+```
+```{r}
+symptoms_tb <- read.csv("~/Desktop/hack/data/symptoms_tb.csv")
+```
+
+```{r}
+tb <- data.frame(rep(NA,500))
+tb$Cough <- sample(x, size=500, prob=c(1-0.7,0.7), replace=TRUE)
+tb$Fever <- sample(x, size=500, prob=c(1-0.51,0.51), replace=TRUE)
+tb$Fatigue  <- sample(x, size=500, prob=c(1-0.59,0.59), replace=TRUE)
+tb$WeightLoss  <- sample(x, size=500, prob=c(1-0.43,0.43), replace=TRUE)
+
+```
