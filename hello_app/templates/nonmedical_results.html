@@ -2,15 +2,18 @@
 
 {% block body %}
 <div class="container">
-   <br>
-    <div class="row">
-        <div class="col-3">
-
-        </div>
-        <div class="col-9">
-            The non doctor form is working
-        </div>
-    </div>
-</div>
+    <br>
+     <div class="row">
+         <div class="col-3">
+ 
+         </div>
+         <div class="col-9">
+             There is high chance of :
+             {% if suggestion %}
+             {{suggestion}}
+             {% endif %}
+         </div>
+     </div>
+ </div>
 
 {% endblock %}

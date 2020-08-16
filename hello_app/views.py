@@ -30,7 +30,7 @@ def non_med():
         print(results)
         non_med_results = severity_classifier(results)
         print(non_med_results)
-        return render_template('nonmedical_results.html')
+        return render_template('nonmedical_results.html', suggestion=non_med_results)
         # return render_template('nonmedical_results.html')
     else:
         return render_template('nonmedical.html')
@@ -157,7 +157,7 @@ def disease_predictor(symptoms, PATH = "logistic-reg_model.joblib"):
 
     return disease
 
-def severity_classifier(symptoms, PATH = '..\hello_app\severity_classifier.joblib'):
+def severity_classifier(symptoms, PATH = "severity_classifier.joblib"):
     """
     Function that predicts whether the patient has a high severity COVID case or a low severity
     COVID case if the patient is confirmed to be tested positive for COVID-19
